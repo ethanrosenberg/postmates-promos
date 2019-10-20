@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   scope '/api/v1' do
     get '/promos', to: 'promos#all'
+    post '/newpromo', to: 'promos#newpromo'
 
   end
 

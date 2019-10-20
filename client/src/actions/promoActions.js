@@ -20,3 +20,24 @@ console.log("getting promos...")
       })
   }
 }
+
+export const addNewPromo = input => {
+
+  return dispatch => {
+
+    const headers = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ code: input.code, description: input.description })
+    }
+
+    fetch('http://localhost:3000/api/v1/newpromo', headers)
+      .then(r => r.json())
+      .then(response => {
+          dispatch(updateSearchResults(response.results))
+
+      })
+  }
+}

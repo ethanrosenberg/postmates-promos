@@ -18,18 +18,19 @@ class SubmitContainer extends React.Component {
             <Form>
               <Form.Group controlId="exampleForm.ControlInput1">
                 <Form.Label>Promo Code</Form.Label>
-                <Form.Text className="text-muted">(eg. 50PERCENT)</Form.Text>
-                <Form.Control type="text" placeholder="Enter promo code" />
+                <Form.Text className="text-muted"></Form.Text>
+                <Form.Control type="text" placeholder="eg. 50PERCENT" />
               </Form.Group>
 
               <Form.Group controlId="exampleForm.ControlInput1">
                 <Form.Label>Description</Form.Label>
-                <Form.Text className="text-muted">Details of Promotion</Form.Text>
+
                 <Form.Control type="text" placeholder="Enter promo details" />
               </Form.Group>
-              <Button variant="primary" type="submit">
-                  Submit
-                </Button>
+              <Button variant="dark" type="submit" size="lg">
+                  Submit New Promo
+              </Button>
+
             </Form>
           }
           </Col>
