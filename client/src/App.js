@@ -5,6 +5,7 @@ import './App.css';
 import HomeContainer from './containers/HomeContainer'
 import SubmitContainer from './containers/SubmitContainer'
 import NavigationBar from './components/NavigationBar'
+import About from './components/About'
 
 import { connect } from 'react-redux';
 
@@ -18,6 +19,8 @@ function App() {
     <Switch>
       <Route exact path="/" component={HomeContainer} />
       <Route exact path="/submit" component={SubmitContainer} />
+      <Route exact path="/about" component={About} />
+
     </Switch>
     </div>
   );
