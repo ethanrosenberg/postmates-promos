@@ -1,20 +1,16 @@
 import React from 'react';
 
 import { Row, Col } from 'react-bootstrap'
+import { connect } from 'react-redux';
+
+import { getPromos } from '../actions/promoActions'
+
 class HomeContainer extends React.Component {
 
   componentDidMount() {
+    //console.log("mounted")
 
-      fetch('http://localhost:3000/api/v1/promos')
-        .then(r => r.json())
-        .then(response =>{
-          console.log(response)
-
-          this.setState({
-            mostPopular: response
-          })
-
-        })
+      this.props.getPromos()
 
     }
 
@@ -23,13 +19,25 @@ class HomeContainer extends React.Component {
     return (
 <>
       <Row>
-          <Col md={{ span: 6, offset: 3 }}>{`md={{ span: 6, offset: 3 }}`}</Col>
+          <Col md={{ span: 6, offset: 3 }}>
+          {
+            this.props.promos.map((promo, index) => (
+              <p>{promo.code}</p>
+            ))
+          }
+          </Col>
       </Row>
-      <p>All Promos</p>
+
 </>
     )
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    promos: state.promos
+  };
+}
 
-export default HomeContainer
+
+export default connect(mapStateToProps, {getPromos})(HomeContainer)

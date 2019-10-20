@@ -6,6 +6,8 @@ import HomeContainer from './containers/HomeContainer'
 import SubmitContainer from './containers/SubmitContainer'
 import NavigationBar from './components/NavigationBar'
 
+import { connect } from 'react-redux';
+
 import { Switch, Route } from 'react-router-dom';
 
 function App() {
