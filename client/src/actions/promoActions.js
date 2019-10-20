@@ -23,6 +23,7 @@ console.log("getting promos...")
 
 export const addNewPromo = input => {
 
+console.log(input)
   return dispatch => {
 
     const headers = {
@@ -36,7 +37,7 @@ export const addNewPromo = input => {
     fetch('http://localhost:3000/api/v1/newpromo', headers)
       .then(r => r.json())
       .then(response => {
-          dispatch(updateSearchResults(response.results))
+          console.log(response)
 
       })
   }
