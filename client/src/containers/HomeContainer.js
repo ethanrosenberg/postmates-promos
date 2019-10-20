@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Row, Col } from 'react-bootstrap'
+import { Row, Col, Jumbotron, Container } from 'react-bootstrap'
 import { connect } from 'react-redux';
 
 import { getPromos } from '../actions/promoActions'
@@ -18,11 +18,20 @@ class HomeContainer extends React.Component {
   render() {
     return (
 <>
+<br></br>
+<br></br>
       <Row>
           <Col md={{ span: 6, offset: 3 }}>
           {
             this.props.promos.map((promo, index) => (
-              <p>{promo.code}</p>
+              <Jumbotron fluid>
+                <Container>
+                  <h1>{promo.code}</h1>
+                  <p>
+                    {promo.description}
+                  </p>
+                </Container>
+              </Jumbotron>
             ))
           }
           </Col>
