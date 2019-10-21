@@ -37,6 +37,7 @@ console.log(input)
     fetch('http://localhost:3000/api/v1/newpromo', headers)
       .then(r => r.json())
       .then(response => {
+        console.log("response back:")
           console.log(response)
 
       })

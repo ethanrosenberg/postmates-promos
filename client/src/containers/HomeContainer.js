@@ -24,6 +24,7 @@ class HomeContainer extends React.Component {
           <Col md={{ span: 6, offset: 3 }}>
           {
             this.props.promos.map((promo, index) => (
+              <><p align="left">{promo.created_at}</p>
               <Jumbotron fluid>
                 <Container>
                   <h1>{promo.code}</h1>
@@ -32,6 +33,7 @@ class HomeContainer extends React.Component {
                   </p>
                 </Container>
               </Jumbotron>
+              </>
             ))
           }
           </Col>
