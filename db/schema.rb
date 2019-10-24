@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_23_060859) do
+ActiveRecord::Schema.define(version: 2019_10_24_065110) do
 
   create_table "promos", force: :cascade do |t|
     t.string "code"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2019_10_23_060859) do
     t.string "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "promo_id"
   end
 
 end
