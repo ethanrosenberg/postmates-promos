@@ -19,4 +19,16 @@ byebug
     render json: Promo.all
 
   end
+
+  def update_rating
+
+    @promo = Promo.find(params[:promo_id])
+
+    @promo.increment(:success)
+    @promo.save
+
+    render json: { status: "success" }
+    #byebug
+
+  end
 end

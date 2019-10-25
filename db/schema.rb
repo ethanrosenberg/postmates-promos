@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_24_065110) do
+ActiveRecord::Schema.define(version: 2019_10_24_074730) do
 
   create_table "promos", force: :cascade do |t|
     t.string "code"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "success"
+    t.integer "failure"
   end
 
   create_table "ratings", force: :cascade do |t|

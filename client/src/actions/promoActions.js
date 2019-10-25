@@ -9,12 +9,12 @@ export const getPromos = () => {
 
   return dispatch => {
 
-console.log("getting promos...")
+//console.log("getting promos...")
 
     fetch('http://localhost:3000/api/v1/promos')
       .then(r => r.json())
       .then(response => {
-        console.log(response)
+        //console.log(response)
           dispatch( updatePromos(response))
 
       })
@@ -23,7 +23,7 @@ console.log("getting promos...")
 
 export const addNewPromo = input => {
 
-console.log(input)
+//console.log(input)
   return dispatch => {
 
     const headers = {

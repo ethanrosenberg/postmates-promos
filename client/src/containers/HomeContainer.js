@@ -6,7 +6,15 @@ import { connect } from 'react-redux';
 import { getPromos } from '../actions/promoActions'
 
 class HomeContainer extends React.Component {
+  constructor () {
+    super()
+     this.state = {
+       code: '',
+       description: '',
+       status: 'ready',
 
+     }
+   }
   componentDidMount() {
     //console.log("mounted")
 
@@ -15,7 +23,50 @@ class HomeContainer extends React.Component {
     }
 
 
+
+
   render() {
+
+    const handleButtonSubmit = event => {
+
+     event.preventDefault()
+
+     console.log(event.target.id)
+
+     //this.props.addNewPromo(this.state)
+
+     const headers = {
+       method: "POST",
+       headers: {
+         "Content-Type": "application/json"
+       },
+       body: JSON.stringify({ promo_id: event.target.id })
+     }
+
+     fetch('http://localhost:3000/api/v1/update_rating', headers)
+       .then(r => r.json())
+       .then(response => {
+         //console.log("response back:")
+           //console.log(response.status)
+
+           this.setState({
+            addressInfo: {
+              ...this.state.addressInfo,
+              city: 'New York City'
+            }
+          });
+
+      console.log("Success.")
+
+      this.props.getPromos()
+
+       })
+
+
+
+   }
+
+
     return (
 <>
 <br></br>
@@ -31,30 +82,29 @@ class HomeContainer extends React.Component {
                   <p>
                     {promo.description}
                   </p>
-                  <Button variant="primary" size="lg">
-                    Large button
-                  </Button>
-                  <Button variant="secondary" size="lg">
-                    Large button
+                  <Button onClick={handleButtonSubmit} id={promo.id} variant="success" size="lg">
+                    Works!
+                  </Button>|
+                  <Button variant="danger" size="lg">
+                    Does not work
                   </Button>
 
                 </Container>
-                {promo.ratings.length > 0
+                { promo.success > 0 || promo.failure  > 0
                   ?
                   <Container align="left">
-
                     {
-                        promo.ratings.map((rating, index) => (
+
                         <>
                         <h5>Ratings</h5>
-                        <p>{rating.id + "." + " Success: " + rating.success + " Failure: " + rating.failure}</p>
-                        <p>{"Comment: " + rating.comment}</p></>
-                      ))
+                        <p>{"Success: " + promo.success + " Failure: " + promo.failure}</p>
+                        <p>{"Comment: " + promo.comment}</p></>
+
                     }
 
                   </Container>
                 : null
-                }
+              }
               </Jumbotron>
               </>
             ))
