@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_25_055941) do
+ActiveRecord::Schema.define(version: 2019_10_25_060234) do
 
   create_table "comments", force: :cascade do |t|
     t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "promo_id"
   end
 
   create_table "promos", force: :cascade do |t|
