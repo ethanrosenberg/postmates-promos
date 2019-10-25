@@ -98,9 +98,21 @@ class HomeContainer extends React.Component {
                         <>
                         <h5>Ratings</h5>
                         <p>{"Success: " + promo.success + " Failure: " + promo.failure}</p>
-                        <p>{promo.comment ? "Comment: " + promo.comment : "No comments." }</p></>
+                        <strong>{promo.comments.length > 0 ? "Comments" : null}</strong>
+                        {
+
+
+                          promo.comments.map((comment, index) => (
+                            <p>{ index + 1 + ". " + comment.content }</p>
+                          ))
+
+
+
+                        }
+                        </>
 
                     }
+
 
                   </Container>
                 : null
