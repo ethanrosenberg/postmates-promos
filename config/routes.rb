@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :comments
   #resources :promos
 
   scope '/api/v1' do

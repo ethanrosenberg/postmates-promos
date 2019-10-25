@@ -56,7 +56,7 @@ class HomeContainer extends React.Component {
             }
           });
 
-      console.log("Success.")
+      console.log(response)
 
       this.props.getPromos()
 
@@ -98,7 +98,7 @@ class HomeContainer extends React.Component {
                         <>
                         <h5>Ratings</h5>
                         <p>{"Success: " + promo.success + " Failure: " + promo.failure}</p>
-                        <p>{"Comment: " + promo.comment}</p></>
+                        <p>{promo.comment ? "Comment: " + promo.comment : "No comments." }</p></>
 
                     }
 

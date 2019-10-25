@@ -4,8 +4,8 @@ class PromosController < ApplicationController
 
 #byebug
 
-    promo = Promo.find_or_create_by(code: params[:code], description: params[:description])
-byebug
+    promo = Promo.create(code: params[:code], description: params[:description], success: 0, failure: 0)
+
     if promo.save
       render json: { status: "success", data: promo}
     else
