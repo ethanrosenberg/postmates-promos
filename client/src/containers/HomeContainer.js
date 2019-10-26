@@ -76,11 +76,15 @@ class HomeContainer extends React.Component {
 <br></br>
       <Row>
           <Col md={{ span: 6, offset: 3 }}>
+          <h1>Lastest Promos</h1>
           {
             this.props.promos.map((promo, index) => (
-              <><p align="left">{promo.created_at}</p>
+              <>
+              <p align="left">{promo.created_at}</p>
               <Jumbotron fluid>
+
                 <Container>
+
                   <h1>{promo.code}</h1>
                   <p>
                     {promo.description}
@@ -101,7 +105,7 @@ class HomeContainer extends React.Component {
                         <>
                         <h5>Ratings</h5>
                         <p>{"Success: " + promo.success + " Failure: " + promo.failure}</p>
-                        { hasComments(promo) ? <strong>Comments ({promo.comments.length})</strong> : <strong>Be the first to add a comment!</strong>}
+                        { hasComments(promo) ? <strong>Comments ({promo.comments.length})</strong> : null}
 
                         {
                           promo.comments.map((comment, index) => (
@@ -111,12 +115,9 @@ class HomeContainer extends React.Component {
                         }
                         { hasComments ? <CommentForm promo_id={promo.id} /> : null}
 
-
                         </>
 
                     }
-
-
                   </Container>
                 : null
               }

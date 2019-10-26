@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Form, Button, FormControl, InputGroup } from 'react-bootstrap'
+//import ToastForm from '../components/ToastForm'
 
 import { getPromos } from '../actions/promoActions'
 
@@ -14,7 +15,8 @@ constructor(props) {
 
   this.state = {
     promo_id: props.promo_id,
-    comment: ''
+    comment: '',
+    success: ''
   }
 }
 
@@ -44,7 +46,10 @@ handleCommentFormChange = event => {
        .then(r => r.json())
        .then(response => {
 
-      //console.log(response)
+         this.setState({
+           success: true
+         })
+
       this.props.getPromos()
 
        })
@@ -53,6 +58,7 @@ handleCommentFormChange = event => {
 
     return (
       <div className="commentForm">
+
       <strong>Add Comment</strong>
       <Form onSubmit={handleCommentSubmit} >
       <InputGroup className="mb-3">
