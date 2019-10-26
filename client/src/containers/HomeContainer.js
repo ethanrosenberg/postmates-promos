@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 
 import { getPromos } from '../actions/promoActions'
 
+import  CommentForm  from '../components/CommentForm'
+
 class HomeContainer extends React.Component {
   constructor () {
     super()
@@ -61,10 +63,8 @@ class HomeContainer extends React.Component {
       this.props.getPromos()
 
        })
-
-
-
    }
+
 
 
     return (
@@ -98,17 +98,15 @@ class HomeContainer extends React.Component {
                         <>
                         <h5>Ratings</h5>
                         <p>{"Success: " + promo.success + " Failure: " + promo.failure}</p>
-                        <strong>{promo.comments.length > 0 ? "Comments" : null}</strong>
+                        {promo.comments.length > 0 ? <CommentForm /> : null}
+
                         {
-
-
                           promo.comments.map((comment, index) => (
                             <p>{ index + 1 + ". " + comment.content }</p>
                           ))
 
-
-
                         }
+
                         </>
 
                     }
