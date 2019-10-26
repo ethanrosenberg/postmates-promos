@@ -8,6 +8,7 @@ class PromosController < ApplicationController
 
     if promo.save
       render json: { status: "success", data: promo}
+
     else
       render json: { status: "error" }
     end
@@ -16,9 +17,14 @@ class PromosController < ApplicationController
 
   def all
 
+    #render json: Promo.all
+
     render json: Promo.all
+    
 
   end
+
+
 
   def update_rating
 
