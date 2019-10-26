@@ -32,11 +32,10 @@ class HomeContainer extends React.Component {
     const hasComments = promo => {
       return promo.comments.length > 0
     }
-    const handleButtonSubmit = event => {
+
+    const handleSuccessButtonSubmit = event => {
 
      event.preventDefault()
-
-     console.log(event.target.id)
 
      //this.props.addNewPromo(this.state)
 
@@ -45,7 +44,7 @@ class HomeContainer extends React.Component {
        headers: {
          "Content-Type": "application/json"
        },
-       body: JSON.stringify({ promo_id: event.target.id })
+       body: JSON.stringify({ promo_id: event.target.id, status: "success" })
      }
 
      fetch('http://localhost:3000/api/v1/update_rating', headers)
@@ -54,19 +53,34 @@ class HomeContainer extends React.Component {
          //console.log("response back:")
            //console.log(response.status)
 
-           this.setState({
-            addressInfo: {
-              ...this.state.addressInfo,
-              city: 'New York City'
-            }
-          });
-
-      console.log(response)
-
       this.props.getPromos()
 
        })
    }
+
+   const handleFailureButtonSubmit = event => {
+
+    event.preventDefault()
+
+
+    const headers = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ promo_id: event.target.id, status: "failure" })
+    }
+
+    fetch('http://localhost:3000/api/v1/update_rating', headers)
+      .then(r => r.json())
+      .then(response => {
+        //console.log("response back:")
+          //console.log(response.status)
+
+     this.props.getPromos()
+
+      })
+  }
 
 
 
@@ -89,10 +103,10 @@ class HomeContainer extends React.Component {
                   <p>
                     {promo.description}
                   </p>
-                  <Button onClick={handleButtonSubmit} id={promo.id} variant="success" size="lg">
+                  <Button onClick={handleSuccessButtonSubmit} id={promo.id} variant="success" size="lg">
                     Works!
                   </Button>|
-                  <Button variant="danger" size="lg">
+                  <Button onClick={handleFailureButtonSubmit} id={promo.id} variant="danger" size="lg">
                     Does not work
                   </Button>
 

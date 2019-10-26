@@ -20,7 +20,7 @@ class PromosController < ApplicationController
     #render json: Promo.all
 
     render json: Promo.all
-    
+
 
   end
 
@@ -30,7 +30,8 @@ class PromosController < ApplicationController
 
     @promo = Promo.find(params[:promo_id])
 
-    @promo.increment(:success)
+     params[:status] === "success" ? @promo.increment(:success) : @promo.increment(:failure)
+     
     @promo.save
 
     render json: { status: "success" }
