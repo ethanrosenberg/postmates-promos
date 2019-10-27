@@ -84,3 +84,4 @@ handleCommentFormChange = event => {
 }
 
 export default connect(null, {getPromos})(CommentForm)
+//export default connect(null, {getPromos})(CommentForm)

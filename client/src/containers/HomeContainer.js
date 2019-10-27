@@ -1,4 +1,8 @@
-import React from 'react';
+
+import React, { useState } from 'react';
+
+import thumbsup from '../thumbsup.png';
+import thumbsdown from '../thumbsdown.png';
 
 import { Row, Col, Jumbotron, Container, ButtonToolbar, Button } from 'react-bootstrap'
 import { connect } from 'react-redux';
