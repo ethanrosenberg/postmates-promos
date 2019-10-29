@@ -17,9 +17,9 @@ function App() {
   return (
     <div className="App">
     <NavigationBar />
-
     <Switch>
       <Route exact path="/" component={SliderContainer} />
+      <Route exact path="/promos" component={HomeContainer} />
       <Route exact path="/submit" component={SubmitContainer} />
       <Route exact path="/about" component={About} />
 

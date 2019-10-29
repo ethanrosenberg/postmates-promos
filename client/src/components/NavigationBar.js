@@ -18,7 +18,7 @@ const NavigationBar = () => {
         { ' Postmates Promos' }
       </Navbar.Brand>
       <Nav className="mr-auto">
-        <Nav.Link href="/">View All</Nav.Link>
+        <Nav.Link href="/promos">View All</Nav.Link>
         <Nav.Link href="/submit">Submit a Promo</Nav.Link>
         <Nav.Link href="/about">About</Nav.Link>
       </Nav>
