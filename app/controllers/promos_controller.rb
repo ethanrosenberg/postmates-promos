@@ -31,7 +31,7 @@ class PromosController < ApplicationController
     @promo = Promo.find(params[:promo_id])
 
      params[:status] === "success" ? @promo.increment(:success) : @promo.increment(:failure)
-     
+
     @promo.save
 
     render json: { status: "success" }
