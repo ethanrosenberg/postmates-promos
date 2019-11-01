@@ -5,6 +5,8 @@ import thumbsup from '../thumbsup.png';
 import thumbsdown from '../thumbsdown.png';
 
 import { Row, Col, Jumbotron, Container, ButtonToolbar, Button } from 'react-bootstrap'
+import LoadingOverlay from 'react-loading-overlay';
+
 import { connect } from 'react-redux';
 
 import { getPromos } from '../actions/promoActions'
@@ -18,6 +20,8 @@ class HomeContainer extends React.Component {
        code: '',
        description: '',
        status: 'ready',
+       isLoading: true
+
 
      }
    }
@@ -25,6 +29,10 @@ class HomeContainer extends React.Component {
     //console.log("mounted")
 
       this.props.getPromos()
+      
+      this.setState({
+        isLoading: false
+      })
 
     }
 
@@ -33,11 +41,13 @@ class HomeContainer extends React.Component {
 
   render() {
 
-    const hasComments = promo => {
+
+
+  const hasComments = promo => {
       return promo.comments.length > 0
     }
 
-    const handleSuccessButtonSubmit = event => {
+  const handleSuccessButtonSubmit = event => {
 
      event.preventDefault()
 
@@ -62,7 +72,7 @@ class HomeContainer extends React.Component {
        })
    }
 
-   const handleFailureButtonSubmit = event => {
+  const handleFailureButtonSubmit = event => {
 
     event.preventDefault()
 
@@ -83,6 +93,9 @@ class HomeContainer extends React.Component {
 
      this.props.getPromos()
 
+
+
+
       })
   }
 
@@ -90,6 +103,13 @@ class HomeContainer extends React.Component {
 
     return (
 <>
+      <LoadingOverlay
+  active={this.state.isLoading}
+  spinner={true}
+  text='Loading your content...'
+  >
+
+
 <br></br>
 <br></br>
       <Row>
@@ -145,6 +165,9 @@ class HomeContainer extends React.Component {
           }
           </Col>
       </Row>
+
+      <p>Some content or children or something.</p>
+    </LoadingOverlay>
 
 </>
     )

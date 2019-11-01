@@ -18,7 +18,7 @@ class PromosController < ApplicationController
   def all
 
     #render json: Promo.all
-
+    sleep 3
     render json: Promo.all
 
 
