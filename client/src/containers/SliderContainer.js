@@ -50,7 +50,7 @@ class SliderContainer extends React.Component {
             <Col md={{ span: 6, offset: 3 }} >
             <h1 style={textStyle}>Love Postmates?</h1>
             <h3 style={subTextStyle}>Why not save big on your next order?</h3>
-            <Button variant="light" type="submit" size="lg"><Link to="/promos">Home</Link></Button>
+            <Button variant="dark" type="submit" size="lg"><Link to="/promos">View All Promos</Link></Button>
 
             </Col>
         </Row>
