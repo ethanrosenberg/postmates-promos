@@ -5,6 +5,13 @@ export const updatePromos = value => {
   };
 };
 
+export const updateLoading = value => {
+  return {
+    type: "UPDATE_LOADING",
+    value
+  };
+};
+
 export const getPromos = () => {
 
   return dispatch => {

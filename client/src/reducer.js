@@ -2,10 +2,13 @@ import { combineReducers } from 'redux';
 
 const UPDATE_PROMOS = "UPDATE_PROMOS";
 
+const UPDATE_LOADING = "UPDATE_LOADING";
+
 
 
 const initialState = {
-  promos: []
+  promos: [],
+  isLoading: true
 };
 
 const promosReducer = (state = initialState.promos, action) => {
@@ -17,10 +20,21 @@ const promosReducer = (state = initialState.promos, action) => {
   return state;
 };
 
+const loadingReducer = (state = initialState.isLoading, action) => {
+  console.log(action.type)
+  if(action.type === UPDATE_LOADING) {
+
+    return action.value
+  }
+  return state;
+};
+
+
 
 
 const rootReducer = combineReducers({
-  promos: promosReducer
+  promos: promosReducer,
+  isLoading: loadingReducer
 });
 
 export default rootReducer;

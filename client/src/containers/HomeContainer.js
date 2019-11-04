@@ -28,13 +28,18 @@ class HomeContainer extends React.Component {
   componentDidMount() {
     //console.log("mounted")
 
+
       this.props.getPromos()
-      
-      this.setState({
-        isLoading: false
-      })
+
+      this.setState({ isLoading: false })
+
+
 
     }
+
+    componentWillUnmount () {
+    clearTimeout(this.timer)
+  }
 
 
 
