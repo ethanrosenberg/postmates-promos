@@ -8,6 +8,7 @@ import NavigationBar from './components/NavigationBar'
 import About from './components/About'
 import SliderContainer from './containers/SliderContainer'
 import Footer from './containers/FooterContainer'
+import LoadingOverlay from 'react-loading-overlay';
 
 import { connect } from 'react-redux';
 
@@ -17,6 +18,12 @@ function App() {
   return (
     <div className="App">
     <NavigationBar />
+    <LoadingOverlay
+    active={props.isLoading}
+    className="HomeContainer"
+    spinner={true}
+    text='Loading your content...'
+    >
     <Switch>
       <Route exact path="/" component={SliderContainer} />
       <Route exact path="/promos" component={HomeContainer} />
@@ -25,8 +32,16 @@ function App() {
 
     </Switch>
     <Footer />
+    </LoadingOverlay>
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    isLoading: state.isLoading
+  };
+}
+
+
+export default connect(mapStateToProps)(App)

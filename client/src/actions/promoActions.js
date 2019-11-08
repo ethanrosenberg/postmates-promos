@@ -23,6 +23,7 @@ export const getPromos = () => {
       .then(response => {
         //console.log(response)
           dispatch( updatePromos(response))
+          dispatch( updateLoading(false))
 
       })
   }

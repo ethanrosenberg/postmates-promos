@@ -31,15 +31,12 @@ class HomeContainer extends React.Component {
 
       this.props.getPromos()
 
-      this.setState({ isLoading: false })
+      //this.setState({ isLoading: false })
 
 
 
     }
 
-    componentWillUnmount () {
-    clearTimeout(this.timer)
-  }
 
 
 
@@ -109,12 +106,13 @@ class HomeContainer extends React.Component {
     return (
 <>
       <LoadingOverlay
-  active={this.state.isLoading}
+  active={this.props.isLoading}
+  className="HomeContainer"
   spinner={true}
   text='Loading your content...'
   >
 
-
+<div className="HomeContainer">
 <br></br>
 <br></br>
       <Row>
@@ -170,8 +168,8 @@ class HomeContainer extends React.Component {
           }
           </Col>
       </Row>
+      </div>
 
-      <p>Some content or children or something.</p>
     </LoadingOverlay>
 
 </>
@@ -181,7 +179,8 @@ class HomeContainer extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    promos: state.promos
+    promos: state.promos,
+    isLoading: state.isLoading
   };
 }
 
