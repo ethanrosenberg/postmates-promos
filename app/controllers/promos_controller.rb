@@ -24,6 +24,10 @@ class PromosController < ApplicationController
 
   end
 
+  def update_reddit
+
+  end
+
 
 
   def update_rating

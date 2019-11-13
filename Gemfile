@@ -5,6 +5,7 @@ ruby '2.6.1'
 
 gem 'rack-cors'
 gem 'active_model_serializers'
+gem 'redd'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
